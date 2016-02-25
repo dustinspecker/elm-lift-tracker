@@ -9,15 +9,26 @@ import StartApp.Simple exposing (start)
 
 -- The full application state of our app
 type alias Model =
-  { lifts : List String
+  { lifts : List Lift
+  }
+
+type alias Lift =
+  { name : String
+  , id : Int
   }
 
 initialModel : Model
 initialModel =
   { lifts =
-    [ "squats"
-    , "bench"
-    , "overhead"
+    [ { name = "squats"
+      , id = 0
+      }
+    , { name = "bench"
+      , id = 1
+      }
+    , { name = "overhead"
+      , id = 2
+      }
     ]
   }
 
@@ -35,17 +46,17 @@ update action model =
       { model | lifts = removeFromList id model.lifts }
 
 ---- VIEW ----
-createListItem : Int -> Signal.Address Action -> String -> Html
-createListItem index address item =
+createListItem : Signal.Address Action -> Lift -> Html
+createListItem address lift =
   li []
-    [ text item
-    , button [ onClick address (Delete index)] [ text "Delete" ]
+    [ text lift.name
+    , button [ onClick address (Delete lift.id)] [ text "Delete" ]
     ]
 
 view : Signal.Address Action -> Model -> Html
 view address model =
   ul []
-    (List.indexedMap (\index -> createListItem index address) model.lifts)
+    (List.map (\lift -> createListItem address lift) model.lifts)
 
 ---- INPUTS ----
 main =
