@@ -29,7 +29,9 @@ update address model =
 createListItem : String -> Html
 createListItem item =
   li []
-    [ text item ]
+    [ text item
+    , button [] [ text "Delete" ]
+    ]
 
 view : Signal.Address a -> Model -> Html
 view address model =
