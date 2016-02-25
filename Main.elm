@@ -24,6 +24,7 @@ initialModel =
 ---- UPDATE ----
 type Action = Delete Int
 
+removeFromList : Int -> List a -> List a
 removeFromList index list =
   (List.take index list) ++ (List.drop (index + 1) list)
 
