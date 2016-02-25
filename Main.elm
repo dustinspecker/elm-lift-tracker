@@ -1,6 +1,7 @@
 module Main where
 
 import Html exposing (..)
+import List
 import StartApp.Simple exposing (start)
 
 ---- MODEL ----
@@ -12,7 +13,11 @@ type alias Model =
 
 initialModel : Model
 initialModel =
-  { lifts = []
+  { lifts =
+    [ "squats"
+    , "bench"
+    , "overhead"
+    ]
   }
 
 ---- UPDATE ----
@@ -21,9 +26,15 @@ update address model =
   model
 
 ---- VIEW ----
+createListItem : String -> Html
+createListItem item =
+  li []
+    [ text item ]
+
 view : Signal.Address a -> Model -> Html
 view address model =
-  text (toString model)
+  ul []
+    (List.map createListItem model.lifts)
 
 ---- INPUTS ----
 main =
