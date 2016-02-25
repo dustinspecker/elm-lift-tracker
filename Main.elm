@@ -2,6 +2,7 @@ module Main where
 
 import Html exposing (..)
 import Html.Events exposing (onClick)
+import Lift
 import List
 import StartApp.Simple exposing (start)
 
@@ -9,12 +10,7 @@ import StartApp.Simple exposing (start)
 
 -- The full application state of our app
 type alias Model =
-  { lifts : List Lift
-  }
-
-type alias Lift =
-  { name : String
-  , id : Int
+  { lifts : List Lift.Model
   }
 
 initialModel : Model
@@ -33,30 +29,21 @@ initialModel =
   }
 
 ---- UPDATE ----
-type Action = Delete Int
-
 removeFromList : Int -> List a -> List a
 removeFromList index list =
   (List.take index list) ++ (List.drop (index + 1) list)
 
-update : Action -> Model -> Model
+update : Lift.Action -> Model -> Model
 update action model =
   case action of
-    Delete id ->
+    Lift.Delete id ->
       { model | lifts = removeFromList id model.lifts }
 
 ---- VIEW ----
-createListItem : Signal.Address Action -> Lift -> Html
-createListItem address lift =
-  li []
-    [ text lift.name
-    , button [ onClick address (Delete lift.id)] [ text "Delete" ]
-    ]
-
-view : Signal.Address Action -> Model -> Html
+view : Signal.Address Lift.Action -> Model -> Html
 view address model =
   ul []
-    (List.map (\lift -> createListItem address lift) model.lifts)
+    (List.map (\lift -> Lift.view address lift) model.lifts)
 
 ---- INPUTS ----
 main =
