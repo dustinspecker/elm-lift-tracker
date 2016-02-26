@@ -1,5 +1,6 @@
 module Lift where
 
+import Actions
 import Html exposing (..)
 import Html.Events exposing (onClick)
 
@@ -9,13 +10,10 @@ type alias Model =
   , id : Int
   }
 
----- UPDATE ----
-type Action = Delete Int
-
 ---- VIEW ----
-view : Signal.Address Action -> Model -> Html
+view : Signal.Address Actions.Action -> Model -> Html
 view address lift =
   li []
     [ text lift.name
-    , button [ onClick address (Delete lift.id) ] [ text "Delete" ]
+    , button [ onClick address (Actions.Delete lift.id) ] [ text "Delete" ]
     ]

@@ -1,8 +1,8 @@
 module Main where
 
+import Actions
 import Html exposing (..)
 import Html.Events exposing (onClick)
-import Lift
 import List
 import LiftList
 import StartApp.Simple exposing (start)
@@ -34,14 +34,14 @@ removeFromList : Int -> List a -> List a
 removeFromList index list =
   (List.take index list) ++ (List.drop (index + 1) list)
 
-update : Lift.Action -> Model -> Model
+update : Actions.Action -> Model -> Model
 update action model =
   case action of
-    Lift.Delete id ->
+    Actions.Delete id ->
       { model | lifts = removeFromList id model.lifts }
 
 ---- VIEW ----
-view : Signal.Address Lift.Action -> Model -> Html
+view : Signal.Address Actions.Action -> Model -> Html
 view address model =
   LiftList.view address model.lifts
 

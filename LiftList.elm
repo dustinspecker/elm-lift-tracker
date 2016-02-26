@@ -1,5 +1,6 @@
 module LiftList where
 
+import Actions
 import Html exposing (..)
 import Lift
 import List
@@ -8,7 +9,7 @@ import List
 type alias Model = List Lift.Model
 
 ---- VIEW ----
-view : Signal.Address Lift.Action -> Model -> Html
+view : Signal.Address Actions.Action -> Model -> Html
 view address model =
   ul []
     (List.map (\lift -> Lift.view address lift) model)
