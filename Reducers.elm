@@ -1,7 +1,7 @@
 module Reducers where
 
 import Actions
-import App
+import Components.App as App
 import List
 
 removeFromList : Int -> List a -> List a

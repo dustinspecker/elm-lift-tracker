@@ -1,4 +1,4 @@
-module Lift where
+module Components.Lift where
 
 import Actions
 import Html exposing (..)

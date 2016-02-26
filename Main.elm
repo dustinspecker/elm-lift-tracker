@@ -1,6 +1,6 @@
 module Main where
 
-import App
+import Components.App as App
 import Reducers
 import StartApp.Simple exposing (start)
 

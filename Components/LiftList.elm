@@ -1,8 +1,8 @@
-module LiftList where
+module Components.LiftList where
 
 import Actions
 import Html exposing (..)
-import Lift
+import Components.Lift as Lift
 import List
 
 ---- MODEL ----
