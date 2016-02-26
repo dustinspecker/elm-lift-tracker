@@ -4,13 +4,14 @@ import Html exposing (..)
 import Html.Events exposing (onClick)
 import Lift
 import List
+import LiftList
 import StartApp.Simple exposing (start)
 
 ---- MODEL ----
 
 -- The full application state of our app
 type alias Model =
-  { lifts : List Lift.Model
+  { lifts : LiftList.Model
   }
 
 initialModel : Model
@@ -42,8 +43,7 @@ update action model =
 ---- VIEW ----
 view : Signal.Address Lift.Action -> Model -> Html
 view address model =
-  ul []
-    (List.map (\lift -> Lift.view address lift) model.lifts)
+  LiftList.view address model.lifts
 
 ---- INPUTS ----
 main =
