@@ -1,54 +1,28 @@
 module Main where
 
 import Actions
+import App
 import Html exposing (..)
 import Html.Events exposing (onClick)
 import List
 import LiftList
 import StartApp.Simple exposing (start)
 
----- MODEL ----
-
--- The full application state of our app
-type alias Model =
-  { lifts : LiftList.Model
-  }
-
-initialModel : Model
-initialModel =
-  { lifts =
-    [ { name = "squats"
-      , id = 0
-      }
-    , { name = "bench"
-      , id = 1
-      }
-    , { name = "overhead"
-      , id = 2
-      }
-    ]
-  }
-
 ---- UPDATE ----
 removeFromList : Int -> List a -> List a
 removeFromList index list =
   (List.take index list) ++ (List.drop (index + 1) list)
 
-update : Actions.Action -> Model -> Model
+update : Actions.Action -> App.Model -> App.Model
 update action model =
   case action of
     Actions.Delete id ->
       { model | lifts = removeFromList id model.lifts }
 
----- VIEW ----
-view : Signal.Address Actions.Action -> Model -> Html
-view address model =
-  LiftList.view address model.lifts
-
 ---- INPUTS ----
 main =
   start
-    { model = initialModel
+    { model = App.initialModel
     , update = update
-    , view = view
+    , view = App.view
     }
