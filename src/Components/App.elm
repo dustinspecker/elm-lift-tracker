@@ -15,12 +15,15 @@ initialModel : Model
 initialModel =
   { lifts =
     [ { name = "squats"
+      , weight = 200
       , id = 0
       }
     , { name = "bench"
+      , weight = 150
       , id = 1
       }
     , { name = "overhead"
+      , weight = 100
       , id = 2
       }
     ]

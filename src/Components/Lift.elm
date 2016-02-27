@@ -8,6 +8,7 @@ import Html.Events exposing (onClick)
 ---- MODEL ----
 type alias Model =
   { name : String
+  , weight: Int
   , id : Int
   }
 
@@ -18,7 +19,7 @@ view address lift =
     [ text lift.name
     , input
       [ type' "number"
-      , value (toString 100)
+      , value (toString lift.weight)
       ]
       []
     , button [ onClick address (Actions.Delete lift.id) ] [ text "Delete" ]
