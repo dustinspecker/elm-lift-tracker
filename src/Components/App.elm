@@ -1,7 +1,7 @@
 module Components.App where
 
 import Actions
-import Html exposing (..)
+import Html
 import Components.LiftList as LiftList
 
 ---- MODEL ----
@@ -30,6 +30,6 @@ initialModel =
   }
 
 ---- VIEW ----
-view : Signal.Address Actions.Action -> Model -> Html
+view : Signal.Address Actions.Action -> Model -> Html.Html
 view address model =
   LiftList.view address model.lifts

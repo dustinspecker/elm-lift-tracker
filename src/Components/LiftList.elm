@@ -1,7 +1,7 @@
 module Components.LiftList where
 
 import Actions
-import Html exposing (..)
+import Html exposing (Html, ul)
 import Components.Lift as Lift
 import List
 

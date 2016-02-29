@@ -1,8 +1,8 @@
 module Components.Lift where
 
 import Actions
-import Html exposing (..)
-import Html.Attributes exposing (..)
+import Html exposing (button, Html, input, li, text)
+import Html.Attributes exposing (type', value)
 import Html.Events exposing (onClick)
 
 ---- MODEL ----
