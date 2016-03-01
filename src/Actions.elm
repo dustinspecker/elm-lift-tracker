@@ -1,3 +1,5 @@
-module Actions where
+module Actions (..) where
 
-type Action = Delete Int
+
+type Action
+  = Delete Int

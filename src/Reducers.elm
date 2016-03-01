@@ -1,8 +1,9 @@
-module Reducers where
+module Reducers (..) where
 
 import Actions
 import Components.App as App
 import List
+
 
 update : Actions.Action -> App.Model -> App.Model
 update action model =
