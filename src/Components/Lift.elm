@@ -1,6 +1,6 @@
 module Components.Lift exposing (..)
 
-import Actions
+import Messages
 import Html exposing (button, Html, input, li, text)
 import Html.Attributes exposing (type', value)
 import Html.Events exposing (onClick)
@@ -20,7 +20,7 @@ type alias Model =
 ---- VIEW ----
 
 
-view : Model -> Html Actions.Action
+view : Model -> Html Messages.Msg
 view lift =
   li
     []
@@ -30,5 +30,5 @@ view lift =
         , value (toString lift.weight)
         ]
         []
-    , button [ onClick (Actions.Delete lift.id) ] [ text "Delete" ]
+    , button [ onClick (Messages.Delete lift.id) ] [ text "Delete" ]
     ]

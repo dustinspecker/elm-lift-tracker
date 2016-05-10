@@ -1,14 +1,14 @@
 module Reducers exposing (..)
 
-import Actions
+import Messages
 import Components.App as App
 import List
 
 
-update : Actions.Action -> App.Model -> (App.Model, Cmd Actions.Action)
-update action model =
-  case action of
-    Actions.Delete id ->
+update : Messages.Msg -> App.Model -> (App.Model, Cmd Messages.Msg)
+update msg model =
+  case msg of
+    Messages.Delete id ->
       ( { model | lifts = List.filter (\lift -> lift.id /= id) model.lifts }
       , Cmd.none
       )

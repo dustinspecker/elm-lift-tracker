@@ -1,6 +1,6 @@
 module Components.LiftList exposing (..)
 
-import Actions
+import Messages
 import Html exposing (Html, ul)
 import Components.Lift as Lift
 import List
@@ -17,7 +17,7 @@ type alias Model =
 ---- VIEW ----
 
 
-view : Model -> Html Actions.Action
+view : Model -> Html Messages.Msg
 view model =
   ul
     []

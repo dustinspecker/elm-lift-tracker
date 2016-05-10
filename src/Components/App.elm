@@ -1,6 +1,6 @@
 module Components.App exposing (..)
 
-import Actions
+import Messages
 import Html
 import Components.LiftList as LiftList
 
@@ -37,6 +37,6 @@ initialModel =
 ---- VIEW ----
 
 
-view : Model -> Html.Html Actions.Action
+view : Model -> Html.Html Messages.Msg
 view model =
   LiftList.view model.lifts
