@@ -1,4 +1,4 @@
-module Components.Lift (..) where
+module Components.Lift exposing (..)
 
 import Actions
 import Html exposing (button, Html, input, li, text)
@@ -20,8 +20,8 @@ type alias Model =
 ---- VIEW ----
 
 
-view : Signal.Address Actions.Action -> Model -> Html
-view address lift =
+view : Model -> Html Actions.Action
+view lift =
   li
     []
     [ text lift.name
@@ -30,5 +30,5 @@ view address lift =
         , value (toString lift.weight)
         ]
         []
-    , button [ onClick address (Actions.Delete lift.id) ] [ text "Delete" ]
+    , button [ onClick (Actions.Delete lift.id) ] [ text "Delete" ]
     ]

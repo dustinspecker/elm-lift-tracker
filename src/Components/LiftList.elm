@@ -1,4 +1,4 @@
-module Components.LiftList (..) where
+module Components.LiftList exposing (..)
 
 import Actions
 import Html exposing (Html, ul)
@@ -17,8 +17,8 @@ type alias Model =
 ---- VIEW ----
 
 
-view : Signal.Address Actions.Action -> Model -> Html
-view address model =
+view : Model -> Html Actions.Action
+view model =
   ul
     []
-    (List.map (\lift -> Lift.view address lift) model)
+    (List.map (\lift -> Lift.view lift) model)

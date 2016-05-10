@@ -1,4 +1,4 @@
-module Components.App (..) where
+module Components.App exposing (..)
 
 import Actions
 import Html
@@ -37,6 +37,6 @@ initialModel =
 ---- VIEW ----
 
 
-view : Signal.Address Actions.Action -> Model -> Html.Html
-view address model =
-  LiftList.view address model.lifts
+view : Model -> Html.Html Actions.Action
+view model =
+  LiftList.view model.lifts

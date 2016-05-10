@@ -1,16 +1,17 @@
-module Main (..) where
+module Main exposing (..)
 
 import Components.App as App
 import Reducers
-import StartApp.Simple exposing (start)
+import Html.App as Html
 
 
 ---- INPUTS ----
 
 
 main =
-  start
-    { model = App.initialModel
+  Html.program
+    { init = (App.initialModel, Cmd.none)
+    , subscriptions = \_ -> Sub.none
     , update = Reducers.update
     , view = App.view
     }
