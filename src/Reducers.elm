@@ -5,10 +5,8 @@ import Components.App as App
 import List
 
 
-update : Messages.Msg -> App.Model -> (App.Model, Cmd Messages.Msg)
+update : Messages.Msg -> App.Model -> App.Model
 update msg model =
   case msg of
     Messages.Delete id ->
-      ( { model | lifts = List.filter (\lift -> lift.id /= id) model.lifts }
-      , Cmd.none
-      )
+      { model | lifts = List.filter (\lift -> lift.id /= id) model.lifts }
