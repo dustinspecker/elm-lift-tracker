@@ -7,6 +7,6 @@ import List
 
 update : Messages.Msg -> App.Model -> App.Model
 update msg model =
-  case msg of
-    Messages.Delete id ->
-      { model | lifts = List.filter (\lift -> lift.id /= id) model.lifts }
+    case msg of
+        Messages.Delete id ->
+            { model | lifts = List.filter (\lift -> lift.id /= id) model.lifts }

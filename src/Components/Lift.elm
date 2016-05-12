@@ -10,10 +10,10 @@ import Html.Events exposing (onClick)
 
 
 type alias Model =
-  { name : String
-  , weight : Int
-  , id : Int
-  }
+    { name : String
+    , weight : Int
+    , id : Int
+    }
 
 
 
@@ -22,13 +22,12 @@ type alias Model =
 
 view : Model -> Html Messages.Msg
 view lift =
-  li
-    []
-    [ text lift.name
-    , input
-        [ type' "number"
-        , value (toString lift.weight)
+    li []
+        [ text lift.name
+        , input
+            [ type' "number"
+            , value (toString lift.weight)
+            ]
+            []
+        , button [ onClick (Messages.Delete lift.id) ] [ text "Delete" ]
         ]
-        []
-    , button [ onClick (Messages.Delete lift.id) ] [ text "Delete" ]
-    ]

@@ -9,8 +9,8 @@ import Html.App as Html
 
 
 main =
-  Html.beginnerProgram
-    { model = App.initialModel
-    , update = Reducers.update
-    , view = App.view
-    }
+    Html.beginnerProgram
+        { model = App.initialModel
+        , update = Reducers.update
+        , view = App.view
+        }

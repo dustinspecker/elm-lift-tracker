@@ -2,4 +2,4 @@ module Messages exposing (..)
 
 
 type Msg
-  = Delete Int
+    = Delete Int

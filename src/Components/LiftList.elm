@@ -10,7 +10,7 @@ import List
 
 
 type alias Model =
-  List Lift.Model
+    List Lift.Model
 
 
 
@@ -19,6 +19,5 @@ type alias Model =
 
 view : Model -> Html Messages.Msg
 view model =
-  ul
-    []
-    (List.map (\lift -> Lift.view lift) model)
+    ul []
+        (List.map (\lift -> Lift.view lift) model)

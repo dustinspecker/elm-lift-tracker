@@ -10,27 +10,27 @@ import Components.LiftList as LiftList
 
 
 type alias Model =
-  { lifts : LiftList.Model
-  }
+    { lifts : LiftList.Model
+    }
 
 
 initialModel : Model
 initialModel =
-  { lifts =
-      [ { name = "squats"
-        , weight = 200
-        , id = 0
-        }
-      , { name = "bench"
-        , weight = 150
-        , id = 1
-        }
-      , { name = "overhead"
-        , weight = 100
-        , id = 2
-        }
-      ]
-  }
+    { lifts =
+        [ { name = "squats"
+          , weight = 200
+          , id = 0
+          }
+        , { name = "bench"
+          , weight = 150
+          , id = 1
+          }
+        , { name = "overhead"
+          , weight = 100
+          , id = 2
+          }
+        ]
+    }
 
 
 
@@ -39,4 +39,4 @@ initialModel =
 
 view : Model -> Html.Html Messages.Msg
 view model =
-  LiftList.view model.lifts
+    LiftList.view model.lifts
